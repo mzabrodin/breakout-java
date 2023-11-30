@@ -18,7 +18,6 @@ import java.io.File;
 
 public class Breakout extends GraphicsProgram {
 
-
     public void run() {
         setup();
         addMouseListeners();
@@ -41,7 +40,7 @@ public class Breakout extends GraphicsProgram {
                 drawPaddle();
                 GLabel pressToStart = new GLabel("Click to play");
                 pressToStart.setFont("Courier New-30");
-                pressToStart.setLocation(getWidth()/2.0 - pressToStart.getWidth()/2.0, getHeight()/2.0 + getHeight()/8.0);
+                pressToStart.setLocation(getWidth() / 2.0 - pressToStart.getWidth() / 2.0, getHeight() / 2.0 + getHeight() / 8.0);
                 add(pressToStart);
                 waitForClick();
                 remove(pressToStart);
@@ -58,7 +57,7 @@ public class Breakout extends GraphicsProgram {
                 drawPaddle();
                 GLabel pressToStart = new GLabel("Click to play");
                 pressToStart.setFont("Courier New-30");
-                pressToStart.setLocation(getWidth()/2.0 - pressToStart.getWidth()/2.0, getHeight()/2.0 + getHeight()/8.0);
+                pressToStart.setLocation(getWidth() / 2.0 - pressToStart.getWidth() / 2.0, getHeight() / 2.0 + getHeight() / 8.0);
                 add(pressToStart);
                 waitForClick();
                 remove(pressToStart);
@@ -75,7 +74,7 @@ public class Breakout extends GraphicsProgram {
                 drawPaddle();
                 GLabel pressToStart = new GLabel("Click to play");
                 pressToStart.setFont("Courier New-30");
-                pressToStart.setLocation(getWidth()/2.0 - pressToStart.getWidth()/2.0, getHeight()/2.0 + getHeight()/8.0);
+                pressToStart.setLocation(getWidth() / 2.0 - pressToStart.getWidth() / 2.0, getHeight() / 2.0 + getHeight() / 8.0);
                 add(pressToStart);
                 waitForClick();
                 remove(pressToStart);
@@ -117,7 +116,7 @@ public class Breakout extends GraphicsProgram {
         BreakoutVars.levelButton3.setFilled(true);
         BreakoutVars.levelButton3.setColor(new Color(169, 179, 136));
         BreakoutVars.level3 = new GLabel("3");
-        BreakoutVars. level3.setFont("Courier New-50");
+        BreakoutVars.level3.setFont("Courier New-50");
         BreakoutVars.level3.setColor(Color.WHITE);
         BreakoutVars.level3.setLocation(getWidth() / 2.0 - BreakoutVars.level3.getWidth() / 2.0, BreakoutVars.BUTTON_Y_OFFSET + BreakoutVars.BUTTON_HEIGHT + BreakoutVars.BUTTON_HEIGHT + BreakoutVars.BUTTON_SPACING + BreakoutVars.BUTTON_HEIGHT + BreakoutVars.BUTTON_SPACING - 10);
         add(BreakoutVars.levelButton3);
@@ -182,13 +181,13 @@ public class Breakout extends GraphicsProgram {
                             BreakoutVars.BRICK_WIDTH,
                             BreakoutVars.BRICK_HEIGHT
                     );
-                    BreakoutVars. brick.setFilled(true);
+                    BreakoutVars.brick.setFilled(true);
                     if ((j / (BreakoutVars.NBRICK_ROWS / 3)) % 3 == 0) {
                         BreakoutVars.brick.setColor(new Color(48, 66, 43));
                     } else if ((j / (BreakoutVars.NBRICK_ROWS / 3)) % 3 == 1) {
-                        BreakoutVars. brick.setColor(new Color(95, 111, 82));
+                        BreakoutVars.brick.setColor(new Color(95, 111, 82));
                     } else {
-                        BreakoutVars. brick.setColor(new Color(169, 179, 136));
+                        BreakoutVars.brick.setColor(new Color(169, 179, 136));
                     }
                     add(BreakoutVars.brick);
                 }
@@ -202,15 +201,15 @@ public class Breakout extends GraphicsProgram {
                             BreakoutVars.BRICK_SEP + (BreakoutVars.BRICK_WIDTH + BreakoutVars.BRICK_SEP) * i,
                             BreakoutVars.BRICK_Y_OFFSET + (BreakoutVars.BRICK_HEIGHT + BreakoutVars.BRICK_SEP) * j,
                             BreakoutVars.BRICK_WIDTH,
-                            BreakoutVars. BRICK_HEIGHT
+                            BreakoutVars.BRICK_HEIGHT
                     );
-                    BreakoutVars. brick.setFilled(true);
+                    BreakoutVars.brick.setFilled(true);
                     if ((j / (BreakoutVars.NBRICK_ROWS / 3)) % 3 == 0) {
-                        BreakoutVars.     brick.setColor(new Color(48, 66, 43));
+                        BreakoutVars.brick.setColor(new Color(48, 66, 43));
                     } else if ((j / (BreakoutVars.NBRICK_ROWS / 3)) % 3 == 1) {
-                        BreakoutVars.    brick.setColor(new Color(95, 111, 82));
+                        BreakoutVars.brick.setColor(new Color(95, 111, 82));
                     } else {
-                        BreakoutVars.   brick.setColor(new Color(169, 179, 136));
+                        BreakoutVars.brick.setColor(new Color(169, 179, 136));
                     }
                     add(BreakoutVars.brick);
                 }
@@ -226,18 +225,18 @@ public class Breakout extends GraphicsProgram {
         if (BreakoutVars.gameStatus == 3) {
             for (int i = 0; i < BreakoutVars.NBRICKS_PER_ROW + 3; i++) {
                 for (int j = 0; j < BreakoutVars.NBRICK_ROWS; j++) {
-                    BreakoutVars.  brick = new GRect(
-                            BreakoutVars.BRICK_SEP + (BreakoutVars.BRICK_WIDTH +BreakoutVars. BRICK_SEP) * i,
+                    BreakoutVars.brick = new GRect(
+                            BreakoutVars.BRICK_SEP + (BreakoutVars.BRICK_WIDTH + BreakoutVars.BRICK_SEP) * i,
                             BreakoutVars.BRICK_Y_OFFSET + (BreakoutVars.BRICK_HEIGHT + BreakoutVars.BRICK_SEP) * j,
                             BreakoutVars.BRICK_WIDTH,
-                            BreakoutVars.  BRICK_HEIGHT);
-                    BreakoutVars.  brick.setFilled(true);
+                            BreakoutVars.BRICK_HEIGHT);
+                    BreakoutVars.brick.setFilled(true);
                     if ((j / (BreakoutVars.NBRICK_ROWS / 3)) % 3 == 0) {
-                        BreakoutVars.   brick.setColor(new Color(48, 66, 43));
+                        BreakoutVars.brick.setColor(new Color(48, 66, 43));
                     } else if ((j / (BreakoutVars.NBRICK_ROWS / 3)) % 3 == 1) {
-                        BreakoutVars. brick.setColor(Color.BLACK);
+                        BreakoutVars.brick.setColor(Color.BLACK);
                     } else {
-                        BreakoutVars. brick.setColor(new Color(169, 179, 136));
+                        BreakoutVars.brick.setColor(new Color(169, 179, 136));
                     }
                     add(BreakoutVars.brick);
                 }
@@ -260,17 +259,17 @@ public class Breakout extends GraphicsProgram {
         if (BreakoutVars.gameStatus == 1) {
             BreakoutVars.vx = BreakoutVars.rgen.nextDouble(3.0, 10.0);
             if (BreakoutVars.rgen.nextBoolean(0.5)) BreakoutVars.vx = -BreakoutVars.vx;
-            BreakoutVars. vy = 10.0;
+            BreakoutVars.vy = 10.0;
         } else if (BreakoutVars.gameStatus == 2 || BreakoutVars.gameStatus == 3) {
-            BreakoutVars.  vx = BreakoutVars.rgen.nextDouble(10.0, 5.0);
+            BreakoutVars.vx = BreakoutVars.rgen.nextDouble(10.0, 5.0);
             if (BreakoutVars.rgen.nextBoolean(0.5)) BreakoutVars.vx = -BreakoutVars.vx;
-            BreakoutVars. vy = 15.0;
+            BreakoutVars.vy = 15.0;
         }
-        BreakoutVars.  ball = new GOval(0, 0);
-       BreakoutVars.ball.setFilled(true);
-       BreakoutVars.ball.setColor(new Color(185, 148, 112));
-       BreakoutVars.ball.setSize(2 * BreakoutVars.BALL_RADIUS, 2 * BreakoutVars.BALL_RADIUS);
-       BreakoutVars.ball.setLocation(
+        BreakoutVars.ball = new GOval(0, 0);
+        BreakoutVars.ball.setFilled(true);
+        BreakoutVars.ball.setColor(new Color(185, 148, 112));
+        BreakoutVars.ball.setSize(2 * BreakoutVars.BALL_RADIUS, 2 * BreakoutVars.BALL_RADIUS);
+        BreakoutVars.ball.setLocation(
                 getWidth() / 2.0 - BreakoutVars.ball.getWidth() / 2.0,
                 getHeight() / 2.0 - BreakoutVars.ball.getHeight() / 2.0);
         add(BreakoutVars.ball);
@@ -285,31 +284,31 @@ public class Breakout extends GraphicsProgram {
             pause(10);
             GObject collider = getCollidingObject();
             if (collider == BreakoutVars.paddle) {
-                BreakoutVars. vy = Math.abs(BreakoutVars.vy) * (-1);
+                BreakoutVars.vy = Math.abs(BreakoutVars.vy) * (-1);
             } else if (collider != null && collider != BreakoutVars.hearts && collider != BreakoutVars.numberOfHearts && collider != BreakoutVars.numberOfPoints && collider != BreakoutVars.points) {
                 play("blink1.au");
                 if (collider.getColor() != Color.BLACK) {
                     remove(collider);
-                   BreakoutVars. numberOfRemovedBricks++;
-                   BreakoutVars. pointsCheck += 5;
+                    BreakoutVars.numberOfRemovedBricks++;
+                    BreakoutVars.pointsCheck += 5;
                 } else if (collider.getColor() == Color.BLACK) {
                     collider.setColor(new Color(95, 111, 82));
                 }
-                BreakoutVars.  vy = -BreakoutVars.vy;
+                BreakoutVars.vy = -BreakoutVars.vy;
             }
             checkWinOrLoss();
         }
     }
 
     private void drawHeart() {
-        BreakoutVars.  hearts = new GImage("heart.png");
+        BreakoutVars.hearts = new GImage("heart.png");
         add(BreakoutVars.hearts);
-        BreakoutVars.  hearts.setLocation(getWidth() - BreakoutVars.hearts.getWidth() * 2, 6);
+        BreakoutVars.hearts.setLocation(getWidth() - BreakoutVars.hearts.getWidth() * 2, 6);
         if (BreakoutVars.numberOfHearts != null) {
             remove(BreakoutVars.numberOfHearts);
         }
-        BreakoutVars. numberOfHearts = new GLabel(": " + BreakoutVars.heartsCheck);
-        BreakoutVars. numberOfHearts.setFont("ComicSans-36");
+        BreakoutVars.numberOfHearts = new GLabel(": " + BreakoutVars.heartsCheck);
+        BreakoutVars.numberOfHearts.setFont("ComicSans-36");
         add(BreakoutVars.numberOfHearts, BreakoutVars.hearts.getX() + BreakoutVars.hearts.getWidth(), BreakoutVars.hearts.getHeight() / 1.25);
     }
 
@@ -321,23 +320,23 @@ public class Breakout extends GraphicsProgram {
         double upLeftAngleX = BreakoutVars.ball.getX() + BreakoutVars.ball.getWidth() + 1;
         double upLeftAngleY = BreakoutVars.ball.getY() - 1;
 
-        double downRightAngleX =BreakoutVars.ball.getX() - 1;
-        double downRightAngleY =BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() + 1;
+        double downRightAngleX = BreakoutVars.ball.getX() - 1;
+        double downRightAngleY = BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() + 1;
 
-        double downLeftAngleX = BreakoutVars.ball.getX() +BreakoutVars. ball.getWidth() + 1;
-        double downLeftAngleY = BreakoutVars.ball.getY() +BreakoutVars. ball.getHeight() + 1;
+        double downLeftAngleX = BreakoutVars.ball.getX() + BreakoutVars.ball.getWidth() + 1;
+        double downLeftAngleY = BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() + 1;
 
         double middleUpX = BreakoutVars.ball.getX() + BreakoutVars.ball.getWidth() / 2.0;
         double middleUpY = BreakoutVars.ball.getY() - 1;
 
-        double middleDownX = BreakoutVars.ball.getX() +BreakoutVars.ball.getWidth() / 2.0;
-        double middleDownY = BreakoutVars.ball.getY() +BreakoutVars.ball.getHeight() + 1;
+        double middleDownX = BreakoutVars.ball.getX() + BreakoutVars.ball.getWidth() / 2.0;
+        double middleDownY = BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() + 1;
 
-        double middleLeftX =BreakoutVars.ball.getX() - 1;
-        double middleLeftY =BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() / 2.0;
+        double middleLeftX = BreakoutVars.ball.getX() - 1;
+        double middleLeftY = BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() / 2.0;
 
-        double middleRightX = BreakoutVars.ball.getX() +BreakoutVars.ball.getWidth() + 1;
-        double middleRightY = BreakoutVars.ball.getY() +BreakoutVars.ball.getHeight() / 2.0;
+        double middleRightX = BreakoutVars.ball.getX() + BreakoutVars.ball.getWidth() + 1;
+        double middleRightY = BreakoutVars.ball.getY() + BreakoutVars.ball.getHeight() / 2.0;
 
         if (getElementAt(upRightAngleX, upRightAngleY) != null) {
             return getElementAt(upRightAngleX, upRightAngleY);
@@ -363,7 +362,7 @@ public class Breakout extends GraphicsProgram {
         if (BreakoutVars.ball.getX() <= 0) {
             BreakoutVars.vx = -BreakoutVars.vx;
         } else if (BreakoutVars.ball.getX() + BreakoutVars.ball.getWidth() >= BreakoutVars.APPLICATION_WIDTH) {
-            BreakoutVars. vx = -BreakoutVars.vx;
+            BreakoutVars.vx = -BreakoutVars.vx;
         } else if (BreakoutVars.ball.getY() <= 0) {
             BreakoutVars.vy = -BreakoutVars.vy;
         }
@@ -373,17 +372,17 @@ public class Breakout extends GraphicsProgram {
         if (BreakoutVars.heartsCheck == 0) {
             removeAll();
             setBackground(new Color(192, 185, 139));
-           BreakoutVars. peremogaOr3rada = new GLabel("You lost!");
-           BreakoutVars. peremogaOr3rada.setFont("Courier New-30");
+            BreakoutVars.peremogaOr3rada = new GLabel("You lost!");
+            BreakoutVars.peremogaOr3rada.setFont("Courier New-30");
             add(BreakoutVars.peremogaOr3rada, getWidth() / 2.0 - BreakoutVars.peremogaOr3rada.getWidth() / 2.0, getHeight() / 2.0 - BreakoutVars.peremogaOr3rada.getHeight() / 2.0);
-            BreakoutVars. gameStatus = 0;
+            BreakoutVars.gameStatus = 0;
             pause(1000);
         }
         if (BreakoutVars.numberOfRemovedBricks == BreakoutVars.numberOfBricks) {
             removeAll();
             setBackground(new Color(192, 185, 139));
-           BreakoutVars.peremogaOr3rada = new GLabel("You won!");
-           BreakoutVars.peremogaOr3rada.setFont("Courier New-30");
+            BreakoutVars.peremogaOr3rada = new GLabel("You won!");
+            BreakoutVars.peremogaOr3rada.setFont("Courier New-30");
             add(BreakoutVars.peremogaOr3rada, getWidth() / 2.0 - BreakoutVars.peremogaOr3rada.getWidth() / 2.0, getHeight() / 2.0 - BreakoutVars.peremogaOr3rada.getHeight() / 2.0);
             BreakoutVars.gameStatus = 0;
             pause(1000);
@@ -394,8 +393,8 @@ public class Breakout extends GraphicsProgram {
         if (BreakoutVars.numberOfRemovedBricks < BreakoutVars.numberOfBricks && BreakoutVars.ball.getY() >= getHeight()) {
             remove(BreakoutVars.ball);
             ball();
-           BreakoutVars. heartsCheck--;
-           BreakoutVars. numberOfHearts.setLabel(": " + BreakoutVars.heartsCheck);
+            BreakoutVars.heartsCheck--;
+            BreakoutVars.numberOfHearts.setLabel(": " + BreakoutVars.heartsCheck);
         }
 
     }
@@ -416,12 +415,12 @@ public class Breakout extends GraphicsProgram {
         if (BreakoutVars.numberOfPoints != null) {
             remove(BreakoutVars.numberOfPoints);
         }
-       BreakoutVars. numberOfPoints = new GLabel(": " + BreakoutVars.pointsCheck);
-       BreakoutVars. numberOfPoints.setFont("ComicSans-36");
-        add(BreakoutVars.numberOfPoints, BreakoutVars.points.getX() +BreakoutVars. points.getWidth(),BreakoutVars. points.getHeight() / 1.2);
+        BreakoutVars.numberOfPoints = new GLabel(": " + BreakoutVars.pointsCheck);
+        BreakoutVars.numberOfPoints.setFont("ComicSans-36");
+        add(BreakoutVars.numberOfPoints, BreakoutVars.points.getX() + BreakoutVars.points.getWidth(), BreakoutVars.points.getHeight() / 1.2);
     }
 
     private void addPoints() {
-        BreakoutVars.  numberOfPoints.setLabel(": " + BreakoutVars.pointsCheck);
+        BreakoutVars.numberOfPoints.setLabel(": " + BreakoutVars.pointsCheck);
     }
 }
