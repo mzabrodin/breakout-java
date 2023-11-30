@@ -7,6 +7,12 @@
  * This file will eventually implement the game of Breakout.
  */
 
+/**
+ * The BreakoutGame class represents a simple Breakout game with different levels.
+ * The game involves a ball bouncing off a paddle to break bricks and earn points.
+ * Players can choose the level of difficulty before starting the game.
+ */
+
 import acm.graphics.*;
 import acm.program.GraphicsProgram;
 
@@ -17,13 +23,19 @@ import java.awt.event.MouseEvent;
 import java.io.File;
 
 public class Breakout extends GraphicsProgram {
-
+    /**
+     * Runs the Breakout game by setting up the initial conditions, adding mouse listeners,
+     * and starting the game loop.
+     */
     public void run() {
         setup();
         addMouseListeners();
         playGame();
     }
-
+    /**
+     * The main game loop responsible for handling different game levels,
+     * initializing game elements, and continuously updating the game state.
+     */
     private void playGame() {
         while (true) {
             chooseLevel();
@@ -82,7 +94,9 @@ public class Breakout extends GraphicsProgram {
             }
         }
     }
-
+    /**
+     * Displays the level selection screen with buttons for different difficulty levels.
+     */
     private void chooseLevel() {
         removeAll();
         setBackground(new Color(245, 240, 206));
@@ -122,14 +136,20 @@ public class Breakout extends GraphicsProgram {
         add(BreakoutVars.levelButton3);
         add(BreakoutVars.level3);
     }
-
+    /**
+     * Draws the paddle on the screen.
+     */
     private void drawPaddle() {
         BreakoutVars.paddle = new GRect(getWidth() / 2.0 - BreakoutVars.PADDLE_WIDTH / 2.0, getHeight() - BreakoutVars.PADDLE_Y_OFFSET, BreakoutVars.PADDLE_WIDTH, BreakoutVars.PADDLE_HEIGHT);
         BreakoutVars.paddle.setFilled(true);
         BreakoutVars.paddle.setColor(new Color(95, 111, 82));
         add(BreakoutVars.paddle);
     }
-
+    /**
+     * Handles mouse click events, allowing players to choose the game level.
+     *
+     * @param event The MouseEvent representing the mouse click.
+     */
     public void mouseClicked(MouseEvent event) {
         double x = event.getX();
         double y = event.getY();
@@ -143,15 +163,27 @@ public class Breakout extends GraphicsProgram {
             }
         }
     }
-
+    /**
+     * Handles mouse press events, indicating that the mouse button is pressed.
+     * This method is used to control the paddle so that it moves only when the user holds down the mouse key
+     * @param e The MouseEvent representing the mouse press.
+     */
     public void mousePressed(MouseEvent e) {
         BreakoutVars.isMousePressed = true;
     }
-
+    /**
+     * Handles mouse release events, indicating that the mouse button is released.
+     * This method is used to control the paddle so that it moves only when the user holds down the mouse key
+     * @param e The MouseEvent representing the mouse release.
+     */
     public void mouseReleased(MouseEvent e) {
         BreakoutVars.isMousePressed = false;
     }
-
+    /**
+     * Handles mouse movement events, allowing the paddle to follow the mouse.
+     *
+     * @param e The MouseEvent representing the mouse movement.
+     */
     public void mouseMoved(MouseEvent e) {
         if (BreakoutVars.isMousePressed) {
             double mouseX = e.getX();
@@ -161,16 +193,24 @@ public class Breakout extends GraphicsProgram {
             }
         }
     }
-
+    /**
+     * Handles mouse drag events
+     *
+     * @param e The MouseEvent representing the mouse drag.
+     */
     public void mouseDragged(MouseEvent e) {
         mouseMoved(e);
     }
-
+    /**
+     * Performs the initial setup of the game, setting the size and background color.
+     */
     private void setup() {
         this.setSize(BreakoutVars.WIDTH_, BreakoutVars.HEIGHT_);
         setBackground(new Color(254, 250, 224));
     }
-
+    /**
+     * Draws bricks based on the selected game level.
+     */
     private void drawBricks() {
         if (BreakoutVars.gameStatus == 1) {
             for (int i = 0; i < BreakoutVars.NBRICKS_PER_ROW; i++) {
@@ -254,7 +294,9 @@ public class Breakout extends GraphicsProgram {
             remove(level3);
         }
     }
-
+    /**
+     * Initializes the ball's position and velocity based on the selected game level.
+     */
     private void ball() {
         if (BreakoutVars.gameStatus == 1) {
             BreakoutVars.vx = BreakoutVars.rgen.nextDouble(3.0, 10.0);
@@ -274,7 +316,9 @@ public class Breakout extends GraphicsProgram {
                 getHeight() / 2.0 - BreakoutVars.ball.getHeight() / 2.0);
         add(BreakoutVars.ball);
     }
-
+    /**
+     * Moves the ball, checking for collisions and updating the game state.
+     */
     private void moveBall() {
         while (BreakoutVars.numberOfBricks != BreakoutVars.numberOfRemovedBricks && BreakoutVars.heartsCheck != 0) {
             BreakoutVars.ball.move(BreakoutVars.vx, BreakoutVars.vy);
@@ -299,7 +343,9 @@ public class Breakout extends GraphicsProgram {
             checkWinOrLoss();
         }
     }
-
+    /**
+     * Draws the heart image indicating the number of lives remaining.
+     */
     private void drawHeart() {
         BreakoutVars.hearts = new GImage("heart.png");
         add(BreakoutVars.hearts);
@@ -311,7 +357,11 @@ public class Breakout extends GraphicsProgram {
         BreakoutVars.numberOfHearts.setFont("ComicSans-36");
         add(BreakoutVars.numberOfHearts, BreakoutVars.hearts.getX() + BreakoutVars.hearts.getWidth(), BreakoutVars.hearts.getHeight() / 1.25);
     }
-
+    /**
+     * Checks for collisions with game elements.
+     *
+     * @return The colliding GObject, or null if no collision.
+     */
     private GObject getCollidingObject() {
 
         double upRightAngleX = BreakoutVars.ball.getX() - 1;
@@ -357,7 +407,9 @@ public class Breakout extends GraphicsProgram {
         }
         return null;
     }
-
+    /**
+     * Checks for collisions with walls and updates ball velocity accordingly.
+     */
     private void checkWalls() {
         if (BreakoutVars.ball.getX() <= 0) {
             BreakoutVars.vx = -BreakoutVars.vx;
@@ -367,7 +419,9 @@ public class Breakout extends GraphicsProgram {
             BreakoutVars.vy = -BreakoutVars.vy;
         }
     }
-
+    /**
+     * Checks if the player has won or lost the game.
+     */
     private void checkWinOrLoss() {
         if (BreakoutVars.heartsCheck == 0) {
             removeAll();
@@ -388,7 +442,9 @@ public class Breakout extends GraphicsProgram {
             pause(1000);
         }
     }
-
+    /**
+     * Decreases the number of remaining lives when the ball falls below the screen.
+     */
     private void decreaseHeartNumbers() {
         if (BreakoutVars.numberOfRemovedBricks < BreakoutVars.numberOfBricks && BreakoutVars.ball.getY() >= getHeight()) {
             remove(BreakoutVars.ball);
@@ -398,7 +454,11 @@ public class Breakout extends GraphicsProgram {
         }
 
     }
-
+    /**
+     * Plays a sound file specified by the filename.
+     *
+     * @param sound The filename of the sound file to be played.
+     */
     public static void play(String sound) {
         try {
             Clip clip = AudioSystem.getClip();
@@ -409,6 +469,9 @@ public class Breakout extends GraphicsProgram {
         }
     }
 
+    /**
+     * Displays the current points earned in the game.
+     */
     private void showPoints() {
         BreakoutVars.points = new GImage("points.png");
         add(BreakoutVars.points, 0, 6);
@@ -419,7 +482,9 @@ public class Breakout extends GraphicsProgram {
         BreakoutVars.numberOfPoints.setFont("ComicSans-36");
         add(BreakoutVars.numberOfPoints, BreakoutVars.points.getX() + BreakoutVars.points.getWidth(), BreakoutVars.points.getHeight() / 1.2);
     }
-
+    /**
+     * Updates the points display.
+     */
     private void addPoints() {
         BreakoutVars.numberOfPoints.setLabel(": " + BreakoutVars.pointsCheck);
     }
