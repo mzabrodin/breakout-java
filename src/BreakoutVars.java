@@ -1,3 +1,11 @@
+/**
+ * File: BreakoutVars.java
+ * -------------------
+ * Name: BreakoutVars
+ * Section Leader: The class that contains variables for the father class.
+ * Authors: Bublyk Svitlana, Zabrodin Maksym.
+ */
+
 import acm.graphics.GImage;
 import acm.graphics.GLabel;
 import acm.graphics.GOval;

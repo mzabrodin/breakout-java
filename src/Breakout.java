@@ -1,14 +1,12 @@
 /**
  * File: Breakout.java
  * -------------------
- * Name:
- * Section Leader:
+ * Name: Breakout
+ * Section Leader: The father class of the game of Breakout.
+ * Authors: Bublyk Svitlana, Zabrodin Maksym
  * <p>
  * This file will eventually implement the game of Breakout.
  * <p>
- * The BreakoutGame class represents a simple Breakout game with different levels.
- * The game involves a ball bouncing off a paddle to break bricks and earn points.
- * Players can choose the level of difficulty before starting the game.
  */
 
 import acm.graphics.*;
@@ -20,6 +18,11 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.io.File;
 
+/**
+ * The BreakoutGame class represents a simple Breakout game with different levels.
+ * The game involves a ball bouncing off a paddle to break bricks and earn points.
+ * Players can choose the level of difficulty before starting the game.
+ */
 public class Breakout extends GraphicsProgram {
     /**
      * Runs the Breakout game by setting up the initial conditions, adding mouse listeners,
@@ -169,6 +172,7 @@ public class Breakout extends GraphicsProgram {
     /**
      * Handles mouse press events, indicating that the mouse button is pressed.
      * This method is used to control the paddle so that it moves only when the user holds down the mouse key
+     *
      * @param e The MouseEvent representing the mouse press.
      */
     public void mousePressed(MouseEvent e) {
@@ -178,6 +182,7 @@ public class Breakout extends GraphicsProgram {
     /**
      * Handles mouse release events, indicating that the mouse button is released.
      * This method is used to control the paddle so that it moves only when the user holds down the mouse key
+     *
      * @param e The MouseEvent representing the mouse release.
      */
     public void mouseReleased(MouseEvent e) {
