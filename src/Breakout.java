@@ -313,12 +313,12 @@ public class Breakout extends GraphicsProgram {
      */
     private void ball() {
         if (BreakoutVars.GAME_MODE == 1) {
-            BreakoutVars.SPEED_X = BreakoutVars.randomGenerator.nextDouble(3.0, 10.0);
-            if (BreakoutVars.randomGenerator.nextBoolean(0.5)) BreakoutVars.SPEED_X = -BreakoutVars.SPEED_X;
+            BreakoutVars.SPEED_X = BreakoutVars.RANDOM_GENERATOR.nextDouble(3.0, 10.0);
+            if (BreakoutVars.RANDOM_GENERATOR.nextBoolean(0.5)) BreakoutVars.SPEED_X = -BreakoutVars.SPEED_X;
             BreakoutVars.SPEED_Y = 10.0;
         } else if (BreakoutVars.GAME_MODE == 2 || BreakoutVars.GAME_MODE == 3) {
-            BreakoutVars.SPEED_X = BreakoutVars.randomGenerator.nextDouble(10.0, 5.0);
-            if (BreakoutVars.randomGenerator.nextBoolean(0.5)) BreakoutVars.SPEED_X = -BreakoutVars.SPEED_X;
+            BreakoutVars.SPEED_X = BreakoutVars.RANDOM_GENERATOR.nextDouble(10.0, 5.0);
+            if (BreakoutVars.RANDOM_GENERATOR.nextBoolean(0.5)) BreakoutVars.SPEED_X = -BreakoutVars.SPEED_X;
             BreakoutVars.SPEED_Y = 15.0;
         }
         BreakoutVars.BALL_OVAL = new GOval(0, 0);
